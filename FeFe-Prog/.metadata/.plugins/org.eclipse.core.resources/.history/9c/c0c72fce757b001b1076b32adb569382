@@ -1,0 +1,83 @@
+package homework2;
+/*Afeefah Manzoor
+ * Date: 2/25/2021
+ * Description: Homework 2- Where in the World am I? Game. 
+ * 				Asks the user 3 questions and tells the user where they are
+ */
+import javax.swing.JOptionPane;
+import javax.swing.*;
+import java.awt.Graphics; 
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.io.IOException;
+import javax.swing.JPanel;
+
+public class HW2 {
+
+	public static void main(String[] args){
+		//variables
+		int dc = 0; //is the user in DC
+		int college = 0; //is the user in college?
+		int house = 0; //is the user in a house?
+		int cont = 0; //if user wants to play again;  0= yes
+		int counter = 0; //counts how many times the game is played
+		
+		//welcome message
+		JOptionPane.showMessageDialog(null, "Welcome to Where in the World am I? Game \n Let's Play");
+		imageMethod(); 
+		do {
+			//getting inputs from user
+			dc = JOptionPane.showConfirmDialog(null, "Are you in DC?");
+			college = JOptionPane.showConfirmDialog(null,"Are you at college?");
+			house = JOptionPane.showConfirmDialog(null, "Are you in a house?");
+		
+			//decides where the user is
+			if(dc == 0 && house == 0){
+				JOptionPane.showMessageDialog(null, "Oh, I see, you are in the White House");
+			}
+			else if(dc != 0 || college == 0 ) {
+				JOptionPane.showMessageDialog(null, "Oh, I see, you are at UVA");
+			}
+			else if(dc == 0 && house != 0) {
+				JOptionPane.showMessageDialog(null, "Oh, I see, you are at the Lincoln Memorial");
+			}
+		
+			//counter
+			counter ++;
+			
+			//ask the user if they want to play again
+			cont = JOptionPane.showConfirmDialog(null, "DO you want to play again?");
+		}while(cont == 0);
+		
+		///outputs how many times the user played
+		JOptionPane.showMessageDialog(null, "You have played " + counter + " times");
+	}	
+	
+	
+	//method to output the image
+	public SwingDemo() throws IOException{
+		/*
+		JFrame frame = new JFrame("main");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		JPanel panel = (JPanel)frame.getContentPane();
+		JLabel label = new JLabel ();
+		label.setIcon(new ImageIcon("horse1.jpg"));
+		panel.add(label);
+		
+		frame.setLocationRelativeTo(null);
+		frame.pack();
+		frame.setVisible(true);
+	**/
+		Image img = Toolkit.getDefaultToolkit().getImage("download.jfif");
+		 this.setContentPane(new JPanel() {
+	         @Override
+	         public void paintComponent(Graphics g) {
+	            super.paintComponent(g);
+	            g.drawImage(img, 0, 0, null);
+	         }
+	      });
+	      pack();
+	      setVisible(true);
+	}
+
+}

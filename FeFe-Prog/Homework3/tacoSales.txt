@@ -1,0 +1,2 @@
+The total sales of truck 2 is: $1120
+The total for the whole weekend is: $3613

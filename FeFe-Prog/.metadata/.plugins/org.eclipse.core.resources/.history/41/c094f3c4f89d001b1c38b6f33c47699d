@@ -1,0 +1,57 @@
+/*Afeefah Manzoor
+ * 4/15/2021
+ * Descr: Airport IATA Code Lookup- 
+ */
+
+//imports
+import javax.swing.JOptionPane;
+import java.io.File;
+import java.util.Scanner;
+
+public class Homework4 {
+	String[] airports = new String[30]; //new array string
+
+	
+	public static void main(String[] args) throws Exception{
+		//vars
+		int index = 0;
+		//pulling data from txt file into arrays
+		File f1 = new File("airports.txt"); //makes object out of airports. txt
+		Scanner fIn1 = new Scanner(f1); //will scan the txt file
+		//takes each line and places it in corresponding place in the array
+		 fileScanner(airports, f1);
+
+		while(fIn1.hasNext()){
+		//	airports[index] = fIn1.nextLine();
+			System.out.println(airports[index]);
+			index++;
+		}
+		//fIn1.close();//closes file
+		index = 0;
+		//pulling data from txt file into arrays
+		File f2 = new File("IATAcodes.txt"); //makes object out of IATAcodes txt
+		Scanner fIn2 = new Scanner(f2); //will scan the txt file
+		String[] iata = new String[30]; //new array string
+		//takes each line and places it in corresponding place in the array
+		while(fIn2.hasNext()){
+			iata[index] = fIn2.nextLine();
+			//System.out.println(iata[index]);
+			index++;
+		}
+		fIn2.close();//closes file
+		
+		
+	}
+	public void fileScanner(String[] array, File txt) throws Exception {
+		String[] txtArray = new String[30];
+		int index = 0;
+		Scanner fIn = new Scanner(txt);
+		while(fIn.hasNext()){
+			txtArray[index] = fIn.nextLine();
+			index++;
+		}
+		fIn.close();
+		//return txtArray;
+	}
+
+}

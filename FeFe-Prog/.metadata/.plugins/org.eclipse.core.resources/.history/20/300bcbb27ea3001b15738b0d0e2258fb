@@ -1,0 +1,16 @@
+package week14;
+
+public class TestPlayer {
+
+	public static void main(String[] args) {
+		// create an array to hold player objects
+		Player[] playerArr = new Player[3];
+		
+		//loop to create and load player objects
+		for(int i = 0; i < playerArr.length; i++){
+			playerArr[i] = new Player("Dragon"+ (i+1),50, "PC", "Freeze Out");
+			playerArr[i].displayPlayer();
+		}
+	}
+
+}
