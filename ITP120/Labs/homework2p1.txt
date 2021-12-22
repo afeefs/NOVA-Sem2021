@@ -1,0 +1,51 @@
+package homework2;
+/*Afeefah Manzoor
+ * Date: 2/25/2021
+ * Description: Homework 2- Where in the World am I? Game. 
+ * 				Asks the user 3 questions and tells the user where they are
+ */
+import javax.swing.JOptionPane;
+
+public class HW2 {
+
+	public static void main(String[] args) {
+		//variables
+		int dc = 0; //is the user in DC
+		int college = 0; //is the user in college?
+		int house = 0; //is the user in a house?
+		int cont = 0; //if user wants to play again;  0= yes
+		int counter = 0; //counts how many times the game is played
+		
+		//welcome message
+		JOptionPane.showMessageDialog(null, "Welcome to Where in the World am I? Game \n Let's Play");
+		
+		do {
+			//getting inputs from user
+			dc = JOptionPane.showConfirmDialog(null, "Are you in DC?");
+			college = JOptionPane.showConfirmDialog(null,"Are you at college?");
+			house = JOptionPane.showConfirmDialog(null, "Are you in a house?");
+		
+			//decides where the user is
+			if(dc == 0 && house == 0){
+				JOptionPane.showMessageDialog(null, "Oh, I see, you are in the White House");
+			}
+			else if(dc != 0 || college == 0 ) {
+				JOptionPane.showMessageDialog(null, "Oh, I see, you are at UVA");
+			}
+			else if(dc == 0 && house != 0) {
+				JOptionPane.showMessageDialog(null, "Oh, I see, you are at the Lincoln Memorial");
+			}
+		
+			//counter
+			counter ++;
+			
+			//ask the user if they want to play again
+			cont = JOptionPane.showConfirmDialog(null, "DO you want to play again?");
+		}while(cont == 0);
+		
+		///outputs how many times the user played
+		JOptionPane.showMessageDialog(null, "You have played " + counter + " times");
+		
+	}
+
+}
